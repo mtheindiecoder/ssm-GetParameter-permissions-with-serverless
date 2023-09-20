@@ -1,0 +1,35 @@
+service: ssm-getParameter
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-esbuild
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  architecture: arm64
+  stage: test
+  region: eu-north-1
+  environment: ${file(env.yml):${self:custom.stage}}
+  deploymentBucket:
+    name: {your-deploymentS3Bucket}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - ssm:GetParameter
+            - ssm:GetParameters
+          Resource:
+            - 'arn:aws:ssm:{your-region}:{your-accountId}:parameter/*'
+ 
+custom:
+  stage: '${opt:stage, self:provider.stage}'
+  esbuild: 
+    bundle: true
+    minify: false
+
+functions:
+  displayParameter:
+    handler: src/handler.displayParameter

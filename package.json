@@ -1,0 +1,28 @@
+{
+  "name": "ssm-getparameter-permissions-with-serverless",
+  "version": "1.0.0",
+  "description": "Restrict access to Systems Manager GetParameter operation with Serverless",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtheindiecoder/ssm-GetParameter-permissions-with-serverless.git"
+  },
+  "keywords": [
+    "ssm"
+  ],
+  "author": "The Indie Coder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mtheindiecoder/ssm-GetParameter-permissions-with-serverless/issues"
+  },
+  "homepage": "https://github.com/mtheindiecoder/ssm-GetParameter-permissions-with-serverless#readme",
+  "devDependencies": {
+    "@aws-sdk/client-ssm": "^3.414.0",
+    "esbuild": "^0.19.3",
+    "serverless": "^3.35.2",
+    "serverless-esbuild": "^1.48.0"
+  }
+}
